@@ -1,0 +1,62 @@
+{
+  "version": 8,
+  "name": "PLAN IGN",
+  "sprite": "https://wxs.ign.fr/static/vectorTiles/styles/PLAN.IGN/sprite/PlanIgn",
+  "sources": {
+    "plan_ign": {
+      "type": "vector",
+      "url": "https://wxs.ign.fr/choisirgeoportail/geoportail/tms/1.0.0/PLAN.IGN/metadata.json"
+    }
+  },
+  "zoom": 18,
+  "center": [2.42, 48.84],
+  "transition": {
+    "duration": 300,
+    "delay": 100
+  },
+  "layers": [
+    {
+      "id": "bati surfacique quelconque",
+      "type": "fill",
+      "source": "plan_ign",
+      "source-layer": "bati_surf",
+      "layout": {
+        "visibility": "visible"
+      },
+      "filter": ["==", "symbo", "BATI_QQUE"],
+      "paint": {
+        "fill-color": "#808080"
+      }
+    },
+    {
+      "id": "bati ZAI - Autres",
+      "type": "fill",
+      "source": "plan_ign",
+      "source-layer": "bati_zai",
+      "layout": {
+        "visibility": "visible"
+      },
+      "filter": ["==", "nature", "Hôpital"],
+      "paint": {
+        "fill-color": "#E3BFE2",
+        "fill-opacity": 0.5,
+        "fill-outline-color": "#E39FE1"
+      }
+    },
+    {
+      "id": "bati ponctuel : Hopital",
+      "type": "symbol",
+      "source": "plan_ign",
+      "source-layer": "bati_ponc",
+      "layout": {
+        "visibility": "visible",
+        "icon-image": "Hopital",
+        "icon-size": 1
+      },
+      "filter": ["==", "symbo", "HOPITAL_PONC"],
+      "paint": {
+        "icon-color": "#FF0000"
+      }
+    }
+  ]
+}
